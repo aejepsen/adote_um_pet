@@ -12,14 +12,14 @@ export function useIndex(){
 
 
   useEffect(() => {
-    ApiService.get('/pets')
+    ApiService.get('/pets/')
     .then((response) => {setListaPets(response.data);
   })}, []);  
 
   function adotar(){
     if(petSelecionado !== null){
       if(validar()){
-        ApiService.post('/adocoes', {
+        ApiService.post('/adocoes/', {
           pet_id: petSelecionado.id,
           email,
           valor
