@@ -1,13 +1,27 @@
 import { CabecalhoContainer,  Logo,  LinksContainer } from './CabecalhoAdmin.style';
+import { Link, Box } from '@mui/material'
+import NextLink from 'next/link'
 
 export default function CabecalhoAdmin(){
   return (
     <CabecalhoContainer>
       <div>
-        <Logo src="https://www.gstatic.com/images/branding/product/1x/keep_48dp.png" alt="Logo" />
+        <Logo src={'/imagens/logo.svg'} alt="Adote um Pet" />
         <LinksContainer>
-          <span>Cadastrar Pet</span>
-          <span>Relatório de Adoção</span>
+          <Link component={NextLink} href={'/pets/cadastro'} >
+            <a>Cadastrar Pet</a>
+          </Link>
+          <Link component={NextLink} href={'/pets/relatorio'} >
+            <a>
+              Relatório{' '}
+              <Box
+                component={'span'}
+                sx={{display: { sm: 'initial', xs: 'none' }}}
+              >   
+              de Adoção           
+              </Box>
+            </a>
+          </Link>
         </LinksContainer>
       </div>
     </CabecalhoContainer>
